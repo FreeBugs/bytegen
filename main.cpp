@@ -13,10 +13,10 @@ bpo::options_description
 getOptionsDescription(std::string *valuestr, std::string *ofstr, uint64_t *bs, uint64_t *count) {
     bpo::options_description description("Valid parameters");
     description.add_options()
-            ("help", "go help yourself")
+            ("help", "display help")
             ("value", bpo::value<std::string>(valuestr), "Required. The value to generate (e.g. 0xFF)")
             ("bs", bpo::value<uint64_t>(bs), "Block size in bytes.")
-            ("count", bpo::value<uint64_t>(count), "Number of 1-Kbyte blocks to generate.");
+            ("count", bpo::value<uint64_t>(count), "Number of blocks to generate.");
     return description;
 }
 
