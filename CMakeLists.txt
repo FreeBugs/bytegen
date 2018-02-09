@@ -9,7 +9,13 @@ find_package(Boost)
 IF (Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIR})
 endif()
-set (Boost_USE_STATIC_LIBS ON) # enable dynamic linking
+
+IF (WIN32)
+    set (Boost_USE_STATIC_LIBS OFF) # enable dynamic linking
+ELSE()
+    set (Boost_USE_STATIC_LIBS ON) # disable dynamic linking
+ENDIF()
+
 set (Boost_USE_MULTITHREAD ON)  # enable multithreading
 find_package (Boost COMPONENTS REQUIRED program_options system)
 
